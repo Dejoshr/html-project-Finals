@@ -346,7 +346,7 @@ header {
   width: 120px;
 }
 
-.fearure_info-description{
+.fearure_info-description {
   font-size: var(--small-font-size);
   text-align: justify;
 }
@@ -364,9 +364,162 @@ header {
   color: var(--title-color);
 }
 
-/*=============== HERO SECTION ===============*/
+/*=============== SHOP SECTION ===============*/
 
-/*=============== HERO SECTION ===============*/
+.shop{
+  height: 170vh;
+}
+
+.shop_container h1 {
+  font-weight: 600;
+}
+
+.container {
+  display: grid;
+  place-items: center;
+  margin-inline: 1.5rem;
+  padding-block: 2rem;
+}
+
+.card_container {
+  display: grid;
+}
+
+.card_article {
+  position: relative;
+  overflow: hidden;
+}
+
+.card_img {
+  width: 328px;
+  border-radius: 1.5rem;
+}
+
+.card_data {
+  width: 280px;
+  background-color: hsl(0, 0%, 100%);
+  box-shadow: 0 8px 24px hsla(0, 0, 0, .15);
+  padding: 1.5rem 2rem;
+  border-radius: 1rem;
+  position: absolute;
+  bottom: -9rem;
+  left: 0;
+  right: 0;
+  margin-inline: auto;
+  opacity: 0;
+  transition: opacity 1s 1s;
+  text-align: center;
+}
+
+.card_description {
+  display: block;
+  font-size: var(--small-font-size);
+  margin-bottom: .25rem;
+}
+
+.card_title {
+  color: hsl(0, 0%, 0%);
+  font-weight: 500;
+  margin-bottom: .75rem;
+}
+
+.card_button {
+  font-size: 18px;
+  font-weight: 500;
+  color: hsla(0, 0%, 42%, 0.999);
+  transition: 0.5s;
+}
+
+.card_button:hover {
+  color: hsl(0, 100%, 50%);
+}
+
+/* Card Animation */
+
+.card_article:hover .card_data {
+  animation: show-data 1s forwards;
+  opacity: 1;
+  transition: opacity .5s;
+}
+
+.card_article:hover {
+  animation: remove-overflow 2s forwards;
+}
+
+.card_article:not(:hover) .card_data{
+  animation: show-overflow 1s forwards;
+}
+
+@keyframes show-data {
+  50% {
+    transform: translateY(-10rem);
+  }
+
+  100% {
+    transform: translateY(-7rem);
+  }
+}
+
+@keyframes remove-overflow {
+  to {
+    overflow: initial;
+  }
+} 
+
+@keyframes remove-data{
+  0%{
+    transform: translateY(-7rem);
+  }
+  50%{
+    transform: translateY(-10rem);
+  }
+  100%{
+    transform: translateY(.5rem);
+  }
+}
+
+@keyframes show-overflow{
+  0%{
+    overflow: initial;
+    pointer-events: none;
+  }
+  50%{
+    overflow: hidden;
+  }
+}
+
+/*=============== SERVICE SECTION ===============*/
+
+.service {
+  display: flex;
+  align-items: center; 
+  gap: 2rem; 
+  padding: 2rem 0 2rem 0; 
+}
+
+.service-img {
+  max-width: 50%; 
+  height: auto;
+}
+
+.service h2, .service p {
+  margin: 0; 
+}
+
+.service h2 {
+  font-size: 2.5rem; 
+  margin-bottom: 1rem;
+  font-weight: 500;
+}
+
+.service p {
+  font-size: 1.5rem; 
+  line-height: 1.5; 
+  text-align: justify;
+  width: 90%;
+}
+
+/*===============  SECTION ===============*/
 
 /*=============== BREAKPOINTS ===============*/
 
@@ -399,11 +552,6 @@ header {
   bottom: 3rem;
 }
 
-/* For small devices */
-
-
-/* For medium devices */
-
 
 /* For large devices */
 
@@ -432,6 +580,25 @@ header {
     flex-direction: column;
     row-gap: 1.25rem;
     align-items: initial;
+  }
+}
+
+@media screen and (min-width: 1120px){
+  .container{
+    height: 100vh;
+  }
+
+  .card_container{
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .card_img{
+    width: 348px;
+  }
+
+  .card_data{
+    width: 316px;
+    padding-inline: 2.5rem;
   }
 }
 
@@ -465,11 +632,11 @@ header {
     margin-bottom: 2px;
   }
 
-  .feature_info-description{
+  .feature_info-description {
     font-size: var(--normal-font-size);
   }
 
-  .home_info-content{
+  .home_info-content {
     row-gap: 7.5rem;
   }
 }
@@ -506,6 +673,11 @@ header {
     border-radius: 10rem;
     margin: 6px 0;
   }
+
+  .shop{
+    height: 380vh;
+  }
+
 
   /* Dropdown menu styles */
 
@@ -577,6 +749,19 @@ header {
   .left p {
     font-size: var(--normal-font-size);
     margin-bottom: 1.2rem;
+  }
+
+  .service h2 {
+    font-size: 2rem; 
+    margin-bottom: 1rem;
+    font-weight: 500;
+  }
+  
+  .service p {
+    font-size: 1rem; 
+    line-height: 1.5; 
+    text-align: justify;
+    width: 90%;
   }
 }
 
